@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link rel="stylesheet" href="landing.css" type="text/css" media="all" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="name">
+          <img src="pics bg.png" class="logo" alt="logo" srcset="" />
+          <h2>Vendify</h2>
+        </div>
+        <nav>
+          <a href="/index.html">Home</a>
+          <a href="/index.html">Marketplace</a>
+          <a href="#">Help</a>
+        </nav>
+      </header>
+      <section class="hero">
+        <h1>Welcome to Vendify</h1>
+        <p>Your trusted marketplace to buy and sell effortlessly.</p>
+        <span>Become Your self boss....</span>
+
+        <div class="choose">
+          <button id="seller" class="btn seller">Become Seller</button>
+          <button id="buyer" class="btn buyer">Become Buyer</button>
+        </div>
+      </section>
+
+      <section class="stats-section">
+        <div class="stat-box">
+          <canvas id="chartBuyers"></canvas>
+          <h3>50K+</h3>
+          <p>Active Weekly Buyers</p>
+        </div>
+        <div class="stat-box">
+          <canvas id="chartSellers"></canvas>
+          <h3>12K+</h3>
+          <p>Verified Sellers</p>
+        </div>
+        <div class="stat-box">
+          <canvas id="chartSatisfaction"></canvas>
+          <h3>90%</h3>
+          <p>Customer Satisfaction</p>
+        </div>
+      </section>
+
+      <section class="products">
+        <h2>Trending Products</h2>
+        <div class="product-grid">
+          <div class="product-card">
+            <img src="smart watch.jpg" />
+            <div class="info">
+              <h4>Smart Watch</h4>
+              <p>₦ 22,000</p>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="headphone.jpg" />
+            <div class="info">
+              <h4>Wireless Headset</h4>
+              <p>₦ 12,500</p>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="gaming mouse.jpg" />
+            <div class="info">
+              <h4>Gaming Mouse</h4>
+              <p>₦ 15,000</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Login/Signup Section -->
+      <section class="log-section">
+        <h2>Join Vendify</h2>
+        <p>Create an account to start buying or selling instantly.</p>
+
+        <div class="sub-log">
+          <div class="login">
+            <h3>Login</h3>
+            <input type="text" placeholder="Email or Username" />
+            <input type="password" placeholder="Password" />
+            <button>Login</button>
+          </div>
+
+          <div class="sign">
+            <h3>Signup</h3>
+            <input type="text" placeholder="Full Name" />
+            <input type="text" placeholder="Email" />
+            <input type="password" placeholder="Create Password" />
+            <button>Create Account</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
+      const seller = document.getElementById("seller");
+      seller.addEventListener("click", function () {
+        location.href = "sellersign.html";
+      });
+
+      const buyer = document.getElementById("buyer");
+      buyer.addEventListener("click", function () {
+        location.href = "buyersign.html";
+      });
+
+      // Chart.js scripts
+      // Buyers Pie Chart
+      new Chart(document.getElementById("chartBuyers"), {
+        type: "doughnut",
+        data: {
+          labels: ["Buyers", "Others"],
+          datasets: [
+            {
+              data: [50, 100],
+              backgroundColor: ["#941414ff", "#ff9900ff"],
+            },
+          ],
+        },
+      });
+
+      // Sellers Pie Chart
+      new Chart(document.getElementById("chartSellers"), {
+        type: "doughnut",
+        data: {
+          labels: ["Sellers", "Others"],
+          datasets: [
+            {
+              data: [12, 100],
+              backgroundColor: ["#941414ff", "#ff9900ff"],
+            },
+          ],
+        },
+      });
+
+      // Customer Satisfaction Pie Chart
+      new Chart(document.getElementById("chartSatisfaction"), {
+        type: "doughnut",
+        data: {
+          labels: ["Satisfied", "Others"],
+          datasets: [
+            {
+              data: [90, 10],
+              backgroundColor: ["#941414ff", "#ff9900ff"],
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>
